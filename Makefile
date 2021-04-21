@@ -55,8 +55,9 @@ release: clean
 	INSTALL_ROOT=../../release $(MAKE) -C .build/launcher install
 	INSTALL_ROOT=../../release $(MAKE) -C .build/lockscreen install
 	INSTALL_ROOT=../../release $(MAKE) -C .build/task-switcher install
+	INSTALL_ROOT=../../release $(MAKE) -C .build/web-browser install
 
-build: tarnish erode rot oxide decay corrupt fret anxiety
+build: tarnish erode rot oxide decay corrupt fret anxiety mold
 
 erode:
 	mkdir -p .build/process-manager
@@ -105,3 +106,9 @@ anxiety: tarnish
 	cp -r applications/screenshot-viewer/* .build/screenshot-viewer
 	cd .build/screenshot-viewer && qmake anxiety.pro
 	$(MAKE) -C .build/screenshot-viewer all
+
+mold: tarnish
+	mkdir -p .build/web-browser
+	cp -r applications/web-browser/* .build/web-browser
+	cd .build/web-browser && qmake mold.pro
+	$(MAKE) -C .build/web-browser all

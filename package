@@ -2,7 +2,7 @@
 # Copyright (c) 2020 The Toltec Contributors
 # SPDX-License-Identifier: MIT
 
-pkgnames=(erode fret oxide rot tarnish decay corrupt anxiety)
+pkgnames=(erode fret oxide rot tarnish decay corrupt anxiety mold)
 pkgver="2.2-~VERSION~"
 timestamp="$(date -u +%Y-%m-%dT%H:%MZ)"
 maintainer="Eeems <eeems@eeems.email>"
@@ -128,5 +128,18 @@ anxiety() {
         install -D -m 755 -t "$pkgdir"/opt/bin "$srcdir"/opt/bin/anxiety
         install -D -m 644 -t "$pkgdir"/opt/usr/share/applications "$srcdir"/opt/usr/share/applications/codes.eeems.anxiety.oxide
         install -D -m 644 -t "$pkgdir"/opt/etc/draft/icons "$srcdir"/opt/etc/draft/icons/image.svg
+    }
+}
+
+mold() {
+    pkgdesc="Web Browser for Oxide"
+    url=https://github.com/Eeems/oxide/tree/master/applications/web-browser
+    section=utils
+    depends=("tarnish (= $pkgver)")
+
+    package() {
+        install -D -m 755 -t "$pkgdir"/opt/bin "$srcdir"/opt/bin/mold
+        install -D -m 644 -t "$pkgdir"/opt/usr/share/applications "$srcdir"/opt/usr/share/applications/codes.eeems.mold.oxide
+        install -D -m 644 -t "$pkgdir"/opt/etc/draft/icons "$srcdir"/opt/etc/draft/icons/web.svg
     }
 }

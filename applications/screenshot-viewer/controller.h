@@ -17,7 +17,7 @@
 
 using namespace codes::eeems::oxide1;
 
-#define CORRUPT_SETTINGS_VERSION 1
+#define ANXIETY_SETTINGS_VERSION 1
 
 enum State { Normal, PowerSaving };
 enum BatteryState { BatteryUnknown, BatteryCharging, BatteryDischarging, BatteryNotPresent };
@@ -60,7 +60,7 @@ public:
 
         settings.sync();
         auto version = settings.value("version", 0).toInt();
-        if(version < CORRUPT_SETTINGS_VERSION){
+        if(version < ANXIETY_SETTINGS_VERSION){
             migrate(&settings, version);
         }
     }
@@ -129,7 +129,7 @@ private:
             throw "Unknown settings version";
         }
         // In the future migrate changes to settings between versions
-        settings->setValue("version", CORRUPT_SETTINGS_VERSION);
+        settings->setValue("version", ANXIETY_SETTINGS_VERSION);
         settings->sync();
     }
 };

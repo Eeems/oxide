@@ -1,0 +1,10 @@
+/* Background and text */
+span,blockquote,code,pre,dt,dd,details,summary,p,li,br,h1,h2,h3,h4,h5,h6:style(color:#000000 !important; background-color:#ffffff !important; text-shadow:0.22px 0.22px !important;
+/* Links */
+a[href]:style(color:#000000 !important; text-decoration: underline !important; background-color:#ffffff !important;
+/* Visited links */
+a:visited,a:active(color:#808080 !important; background-color:#ffffff !important;
+/* Divs */
+div:style(color:#000000 !important; background-color:#ffffff !important; text-shadow:0.22px 0.22px !important
+/* Force grayscale */
+img:style(filter:grayscale(100%) !important;

@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>main.qml</file>
+        <file>widgets/AppItem.qml</file>
+        <file>widgets/CustomMenu.qml</file>
+        <file>widgets/BetterMenu.qml</file>
+        <file>font/icomoon.ttf</file>
+        <file>widgets/StatusIcon.qml</file>
+        <file>widgets/BetterButton.qml</file>
+        <file>page.css</file>
+        <file>page.js</file>
+        <file>widgets/SwipeArea.qml</file>
+        <file>widgets/Button.qml</file>
+        <file>widgets/KeyboardKey.qml</file>
+        <file>widgets/Keyboard.qml</file>
+    </qresource>
+</RCC>

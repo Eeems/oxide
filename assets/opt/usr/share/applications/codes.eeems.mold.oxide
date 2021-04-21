@@ -1,0 +1,9 @@
+{
+        "displayName": "Web Browser",
+        "description": "Browse the web",
+        "bin": "/opt/bin/mold",
+        "icon": "/opt/etc/draft/icons/web.svg",
+        "flags": [],
+        "type": "foreground",
+        "permissions": []
+}
