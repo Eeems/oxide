@@ -20,9 +20,8 @@ Here is a video of it in action:
 Install the reMarkable toolchain and then run `make release`. It will produce a folder named `release` containing all the output.
 
 ### Nix
-Works on x86_64-linux or macOS with
-[linuxkit-nix](https://github.com/nix-community/linuxkit-nix).
+Works on x86_64-linux or macOS via [nix-docker](https://github.com/LnL7/nix-docker).
 
 ```ShellSession
-$ nix build
+$ nix-build --argstr system 'x86_64-linux'
 ```

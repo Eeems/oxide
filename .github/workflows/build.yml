@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v2
         with:
           repository: toltec-dev/toltec.git
-          ref: development
+          ref: testing
           path: toltec
       - name: Setup Python
         uses: actions/setup-python@v2
