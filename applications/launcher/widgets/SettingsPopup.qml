@@ -48,29 +48,23 @@ Item {
                     to: 360
                     stepSize: 1
                     value: controller.sleepAfter
-                    onDownPressedChanged: {
-                        if(this.value <= 10){
-                            this.stepSize = 1;
-                            return;
-                        }
-                        if(this.value <= 60){
-                            this.stepSize = 5;
-                            return;
-                        }
-                        this.stepSize = 15;
-                    }
-                    onUpPressedChanged: {
-                        if(this.value < 10){
-                            this.stepSize = 1;
-                            return;
-                        }
-                        if(this.value < 60){
-                            this.stepSize = 5;
-                            return;
-                        }
-                        this.stepSize = 15;
-                    }
                     onValueChanged: {
+                        if(this.ignoreNextValueChange){
+                            this.ignoreNextValueChange = false;
+                            return;
+                        }
+                        var offset = 0;
+                        if(this.value > 10){
+                            offset = 4;
+                        }
+                        if(this.value > 60){
+                            offset = 14;
+                        }
+                        // this event handler will fire a second time
+                        // if offset is non-zero
+                        this.ignoreNextValueChange = offset !== 0;
+                        this.lastDirectionUp ?
+                            this.value += offset : this.value -= offset;
                         controller.sleepAfter = this.value;
                     }
                     Layout.preferredWidth: 300
