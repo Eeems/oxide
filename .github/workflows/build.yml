@@ -14,8 +14,8 @@ jobs:
           ref: testing
       - name: Cleanup
         run: |
-          rm -rf package/oxide/*
-          mkdir package/oxide/src
+          rm -rf package/*
+          mkdir -p package/oxide/src
       - uses: actions/checkout@v2.3.1
         with:
           path: package/oxide/src
@@ -32,6 +32,10 @@ jobs:
           sed -i "s/~VERSION~/$(cat ../version.txt)/" ./package
           mv ./package ..
           tar --exclude='./.git' -czvf ../oxide.tar.gz .
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v1
+        with:
+          languages: javascript, cpp
       - name: Build packages
         run: |
           make FLAGS=--verbose oxide
@@ -45,4 +49,6 @@ jobs:
         with:
           name: packages
           path: output
+      - name: Perform CodeQL Analysis
+        uses: github/codeql-action/analyze@v1
 
